@@ -1,0 +1,37 @@
+USE [JurassicPark]
+GO
+
+/****** Object:  Table [dbo].[Dino]    Script Date: 15.06.2023 08:43:59 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Dino](
+	[DinoID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[SpeziesID] [int] NOT NULL,
+	[GPSID] [int] NOT NULL,
+ CONSTRAINT [PK_Dino] PRIMARY KEY CLUSTERED 
+(
+	[DinoID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Dino]  WITH CHECK ADD  CONSTRAINT [FK_Dino_Positionszuordnung] FOREIGN KEY([GPSID])
+REFERENCES [dbo].[GPS] ([GPSID])
+GO
+
+ALTER TABLE [dbo].[Dino] CHECK CONSTRAINT [FK_Dino_Positionszuordnung]
+GO
+
+ALTER TABLE [dbo].[Dino]  WITH CHECK ADD  CONSTRAINT [FK_Dino_Spezies] FOREIGN KEY([SpeziesID])
+REFERENCES [dbo].[Spezies] ([Spezies ID])
+GO
+
+ALTER TABLE [dbo].[Dino] CHECK CONSTRAINT [FK_Dino_Spezies]
+GO
+
+

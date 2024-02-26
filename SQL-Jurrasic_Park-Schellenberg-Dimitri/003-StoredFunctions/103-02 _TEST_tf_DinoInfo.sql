@@ -1,0 +1,1 @@
+SELECT * FROM tf_DinoInfo (3)

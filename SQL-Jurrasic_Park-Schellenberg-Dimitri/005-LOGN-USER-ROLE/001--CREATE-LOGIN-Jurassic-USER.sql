@@ -1,0 +1,7 @@
+USE [master];
+GO
+
+CREATE LOGIN [JurassicBenutzer] WITH PASSWORD = N'123',
+DEFAULT_DATABASE = [JurassicPark], 
+CHECK_EXPIRATION = OFF, CHECK_POLICY = OFF;
+GO
